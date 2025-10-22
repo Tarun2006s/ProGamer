@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Hub</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #548686, #6db3b3);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Game Selection Container */
+        .game-selection {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        /* Game Buttons */
+        .game-btn {
+            background: linear-gradient(135deg, #ff8a00, #e52e71);
+            color: #fff;
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transform: skewX(-45deg);
+            transition: all 0.5s;
+        }
+
+        .game-btn:hover::after {
+            left: 200%;
+        }
+
+        .game-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .game-btn {
+                padding: 15px 30px;
+                font-size: 1.2rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 30px;
+            }
+
+            .game-selection {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎮 Choose Your Game 🎮</h1>
+    <div class="game-selection">
+        <button class="game-btn" onclick="openGame('Rock_Paper_Secissor_Game/index.html')">Rock Paper Scissors</button>
+        <button class="game-btn" onclick="openGame('TicTacToeGame/index.html')">Tic Tac Toe</button>
+    </div>
+
+    <script>
+        function openGame(path) {
+            // Opens the selected game in the same tab
+            window.location.href = path;
+        }
+    </script>
+</body>
+</html>
